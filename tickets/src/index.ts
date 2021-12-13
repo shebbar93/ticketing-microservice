@@ -13,7 +13,7 @@ const start = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     } as ConnectOptions);
-    console.log("Connected to auth mongo DB");
+    console.log("Connected to ticket mongo DB");
   } catch (ex) {
     console.error(ex);
   }
