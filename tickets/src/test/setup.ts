@@ -5,6 +5,9 @@ import jwt from "jsonwebtoken";
 declare global {
   function signin(): string[];
 }
+
+jest.mock("../nats-wrapper");
+
 let mongo: any;
 beforeAll(async () => {
   process.env.JWT_KEY = "asdfg";
@@ -18,6 +21,7 @@ beforeAll(async () => {
 });
 
 beforeEach(async () => {
+  jest.clearAllMocks();
   const collections = await connection.db.collections();
 
   for (let i of collections) {
